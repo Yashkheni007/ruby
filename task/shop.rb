@@ -16,7 +16,7 @@ class Shop_Order_System
 
   #for second case
   def print_day_details(date_str)
-    date = Date.parse.(date_str)
+    date = Date.parse(date_str)
     if @order[date]
       total_orders = @order[date].size
       total_amount = @order[date].sum
@@ -49,12 +49,13 @@ class Shop_Order_System
         total_orders += amount.size
         total_amount += amount.sum
       end
+    end
 
-      if total_orders > 0
-        puts "Total number of order in given month is: #{total_orders}"
-        puts "Total amount of given month is: $#{total_amount}"
-      else
-      end
+    if total_orders > 0
+      puts "Total number of order in this month is: #{total_orders}"
+      puts "Total amount of this month is: $#{total_amount}"
+    else
+      puts "No order found in this month"
     end
   end
 
@@ -67,7 +68,7 @@ class Shop_Order_System
     puts "3. Print Month Details"
     loop do
       print "How may I help you?(1, 2, 3 or quit): "
-      input = gets.strip.downcase
+      input = gets.strip
       case input
       when "1"
         print "Enter order details (date in YYYY-MM-DD and amount): "
