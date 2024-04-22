@@ -27,8 +27,10 @@ class Word_Counter
   end
 
   def count_unique_word
-    @word_counter.each do |word , count|
-      puts "#{word} = #{count}"
+    File.open("word_count" , "w") do |file|
+      @word_counter.each do |word , count|
+        puts "#{word} = #{count}"
+      end
     end
   end
 end
